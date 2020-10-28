@@ -18,6 +18,10 @@ int main() {
 
 	setlocale(LC_ALL, "Rus");
 
+	/*
+
+
+
 	// # 1
 	int* a;
 	size_t n;
@@ -92,6 +96,15 @@ int main() {
 	}
 	cout << endl;
 
+
+
+	*/
+	size_t n{ 11 };
+	int* ar = new int[n] { 1, 6, 3, 8, 1, 9, 12, 0, 0, 3, -1};
+	rec_fast_sort(ar, 0, n - 1);
+	for (int i{ 0 }; i < n; i++) {
+		cout << ar[i] << "\t";
+	}
 	//system("pause");
 	return 0;
 }

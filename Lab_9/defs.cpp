@@ -123,6 +123,10 @@ int binary_search(int* a, size_t n, int el)
 {
 	// Функция двоичного поиска значения в упорядоченном массиве
 
+	// Функция возвращает индекс искомого значения, если нужного
+	// значения в массиве  нет, то возвращается -1
+	// Если значений несколько, то возвращает случайный индекс
+
 	int left{ 0 }, right = n, mid;
 	while (left <= right) {
 		mid = left + (right - left) / 2;
@@ -143,21 +147,41 @@ void rec_fast_sort(int*& a, int left, int right)
 	// Рекурсивная функция быстрой сортировки
 
 	int piv{ (left + right + 1) / 2 }, l{ left }, r{ right };
-	while (l < r) {
+	while (l <= r) {
 		while (a[l] <= a[piv] && l < piv)
 			l++;
+
 		while (a[r] >= a[piv] && r > piv)
 			r--;
 
-		swap(a[l], a[r]);
-		l++; 
-		r--;
-		
+		if (l == r)
+			break;
+
+		if (l == piv) {
+			swap(a[piv], a[r]);
+			l = left;
+			r = right;
+			continue;
+		}
+
+		if (r == piv) {
+			swap(a[piv], a[l]);
+			l = left;
+			r = right;
+			continue;
+		}
+
+		if (l < r) {
+			swap(a[l], a[r]);
+			l++;
+			r--;
+		}
+	}
+
 		if (left < r)
 			rec_fast_sort(a, left, r - 1);
 		if (l < right)
 			rec_fast_sort(a, l + 1, right);
-	}
 
 	return;
 }
