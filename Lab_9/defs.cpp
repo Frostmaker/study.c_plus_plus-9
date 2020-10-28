@@ -12,7 +12,7 @@ void read(int*& a, size_t& n)
 	a = new int[n];
 	for (int i{ 1 }; i <= n; i++) {
 		cout << "Введите " << i << " элемент: "; 
-		cin >> a[i];
+		cin >> a[i - 1];
 	}
 
 	return;
@@ -183,5 +183,5 @@ void rec_fast_sort(int*& a, int left, int right)
 		if (l < right)
 			rec_fast_sort(a, l + 1, right);
 
-	return;
+	return;	
 }

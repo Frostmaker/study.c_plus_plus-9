@@ -18,93 +18,48 @@ int main() {
 
 	setlocale(LC_ALL, "Rus");
 
-	/*
-
-
-
 	// # 1
+	cout << "Создание динамического массива\n";
 	int* a;
 	size_t n;
 	read(a, n);
 
+	for (int i{ 0 }; i < n; i++) {
+		cout << a[i] << "\t";
+	}
+	cout << endl << endl;
+
 	// # 2
-	size_t n0{ 5 };
+	cout << "Создание случайного динамического массива\n";
+	size_t n0;
+	cout << "Введите размер массива: ";
+	cin >> n0;
 	int* c = random_array(n0);
 	for (int i{ 0 }; i < n0; i++) {
 		cout << c[i] << "\t";
 	}
-	cout << endl;
+	cout << endl << endl;
 
 	// # 3
-	size_t n1{ 4 }, n2{ 5 };
+	cout << "Вставка элемента в середину массива\n";
+	size_t n1{ 4 };
 	int* d = new int[n1]{ 1, 2, 3, 4 };
-	int* v = new int[n2]{ 1, 2, 3, 4, 5 };
-
 	put_elem(d, n1);
-	put_elem(v, n2);
+	
 	for (int i{ 0 }; i < n1; i++) {
 		cout << d[i] << "\t";
 	}
-	cout << endl;
+	cout << endl << endl;
+
+	size_t n2{ 5 };
+	int* v = new int[n2] { 1, 2, 3, 4, 5 };
+	put_elem(v, n2);
+
 	for (int i{ 0 }; i < n2; i++) {
 		cout << v[i] << "\t";
 	}
-	cout << endl;
-
-	// # 4
-	size_t n3{ 7 };
-	int* u = new int[7]{ 1, 2, 3, 3, 2, 1, 10 };
-	for (int i{ 0 }; i < n3; i++) {
-		cout << u[i] << "\t";
-	}
-	cout << endl;
-
-	remove_duplicate(u, n3);
-
-	for (int i{ 0 }; i < n3; i++) {
-		cout << u[i] << "\t";
-	}
-	cout << endl;
-
-	// # 5.1
-	size_t n4{ 3 }, n5{ 4 }, n6{ 1 };
-	int* x = new int[n4] {1, 2, 3};
-	int* y = new int[n5] {1, 2, 3, 1};
-	int* z = new int[n6] {13};
-	cout << check_order(x, n4) << endl;
-	cout << check_order(y, n5) << endl;
-	cout << check_order(z, n6) << endl;
-
-	// # 5.2
-	int* ar3 = new int[5]{ 1, 2, 3, 4, 5 };
-	cout << binary_search(ar3, 5, 6) << endl;
-
-	// # 5.3
-	int* ar0 = new int[7]{ 1, 6, 3, 8, 4, 7, 0 };
-	int* ar1 = new int[8]{ 1, 6, 3, 8, 4, 7, 0, 6 };
-	int* ar2 = new int[5]{ 5, 4, 3, 2, 1 };
-
-	rec_fast_sort(ar2, 0, 4);
-	rec_fast_sort(ar1, 0, 7);
-	for (int i{ 0 }; i < 5; i++) {
-		cout << ar2[i] << "\t";
-	}
 	cout << endl << endl;
 
-	for (int i{ 0 }; i < 8; i++) {
-		cout << ar1[i] << "\t";
-	}
-	cout << endl;
-
-
-
-	*/
-	size_t n{ 11 };
-	int* ar = new int[n] { 1, 6, 3, 8, 1, 9, 12, 0, 0, 3, -1};
-	rec_fast_sort(ar, 0, n - 1);
-	for (int i{ 0 }; i < n; i++) {
-		cout << ar[i] << "\t";
-	}
 	//system("pause");
 	return 0;
 }
